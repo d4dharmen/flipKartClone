@@ -1,10 +1,11 @@
 import "./App.css";
+import HomePage from "./pages/homePage/home";
 
 function App() {
   return (
     <>
-      <h1> hi from app</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ratione quisquam, laboriosam quam modi voluptates odit dolores soluta illum vero.</p>
+    <HomePage />
+     
     </>
   );
 }

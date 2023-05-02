@@ -1,0 +1,22 @@
+/* .banner1 {
+  display: flex;
+  width: 100%;
+  height: 20vh;
+  justify-content: center;
+  text-align: center;
+  padding: -20px;
+  background-image: linear-gradient(rgb(255, 230, 0), rgb(51, 255, 0));
+} */
+.bannerDiv {
+  background-color: grey;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 2px;
+}
+.bannerImage {
+  
+  width: 100%; 
+  height: 35vh;
+}

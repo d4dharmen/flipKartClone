@@ -1,0 +1,23 @@
+*{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+.menuDiv {
+  margin: auto;
+  padding-bottom: 10px;
+  width: 80%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* gap: 10px; */
+}
+.menuDiv img{
+  width: 90px;
+}
+h5 {
+  color: red;
+  font-size: 1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

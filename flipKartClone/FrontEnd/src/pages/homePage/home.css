@@ -1,0 +1,20 @@
+
+.menus,
+.cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.productHeadingDiv {
+  text-align: center;
+  background-color: cadetblue;
+  padding: 5px;
+  margin: 20px auto;
+}
+.banner{
+  background-color: gainsboro;
+  padding: 5px 0px;
+  border-top: 2px solid rgb(138, 135, 135);
+  border-bottom: 2px solid rgb(138, 135, 135);
+}
