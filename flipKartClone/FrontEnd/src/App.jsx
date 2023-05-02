@@ -1,11 +1,14 @@
 import "./App.css";
 import HomePage from "./pages/homePage/home";
+import { LoginPage } from "./pages/loginPage/Login";
 
 function App() {
   return (
     <>
-    <HomePage />
-     
+      <HomePage />
+      <div className="loginBox">
+        <LoginPage />
+      </div>
     </>
   );
 }

@@ -1,6 +1,9 @@
 import "./Login.css";
 export function LoginPage() {
   return (
+    <div className="outerArea">
+
+    
     <div className="loginDiv">
       <div className="loginSalutation">
         <h2>welcome to login</h2>
@@ -17,8 +20,10 @@ export function LoginPage() {
           <input type="text" placeholder="user name" />
           <input type="password" placeholder="password" />
           <button type="submit">login</button>
+         <h3 className="regLink" >Not a member, Register Here</h3>
         </form>
       </div>
+    </div>
     </div>
   );
 }
