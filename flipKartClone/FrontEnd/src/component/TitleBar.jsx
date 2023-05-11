@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./titleBar.css";
 
 //components
 import MuiLogin from "./MuiLogin/MuiLogin";
+import { DataContext } from "../context/DataProvider";
+import Profile from "./profile/profile";
 
 function TitleBar() {
   const [open, setOpen] = useState(false);
+  const { account, setAccount } = useContext(DataContext);
 
   const openLogin = () => {
     setOpen(true);
@@ -20,9 +23,16 @@ function TitleBar() {
         <span className="searchBox">
           <input type="search" name="" placeholder="search your product here" />
         </span>
-        <div className="barItem login" onClick={() => openLogin()}>
-          login
-        </div>
+        {account ? (<>
+          <Profile account ={account} setAccount={setAccount}/>
+          
+        </>
+        ) : (
+          <div className="barItem login" onClick={() => openLogin()}>
+            login
+          </div>
+        )}
+
         <span className="barItem">become seller</span>
         <span className="barItem">kart</span>
       </div>

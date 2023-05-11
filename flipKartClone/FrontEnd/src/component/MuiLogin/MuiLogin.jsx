@@ -7,7 +7,9 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import signupAuthenticate from "../../services/signupAuthenticate";
+import { DataContext } from "../../context/DataProvider";
 
 // styled css
 const LoginBox = styled(Box)`
@@ -44,23 +46,37 @@ const initialInputData = {
 const MuiLogin = ({ open, setOpen }) => {
   const [isLogin, setIsLogin] = useState(initialOpenValue);
   const [inputData, setInputData] = useState(initialInputData);
+  const {account, setAccount} = useContext(DataContext)
 
   const handleLoginBox = () => {
     setIsLogin(false);
+  }; 
+
+//storing fields data in input data state
+  const handleChange = (event) => {
+    setInputData({ ...inputData, [event.target.name]: event.target.value });
   };
 
-  const handleChange = (event) => {
-    setInputData(
-       { ...inputData, [event.target.name]: event.target.value });
-       
-    
-  };
-  const submitHandler= (e)=>{
+  // on form submit
+  const submitHandler = (e) => {
     e.preventDefault();
-    console.log(inputData)
-    setInputData(initialInputData)
-  }
-  // console.log(inputData);
+    console.log(inputData);
+    setInputData(initialInputData);
+  };
+
+// on click user signup login button
+  const userSignup = async () => {
+    let response = await signupAuthenticate(inputData);
+
+    // const userName = response.data.mesage.username;
+    
+    if (!response) return;
+    setOpen(false)
+     await setAccount (response.data.mesage.username)
+   
+  };
+  
+  // returning jsx
   return (
     <Dialog
       open={open}
@@ -134,6 +150,7 @@ const MuiLogin = ({ open, setOpen }) => {
               </Button>
             </form>
           </LoginFields>
+
         ) : (
           <LoginFields>
             <Typography variant="h4"> Register</Typography>
@@ -175,8 +192,12 @@ const MuiLogin = ({ open, setOpen }) => {
                 onChange={handleChange}
               />
 
-              <Button type="sumbit" variant="contained" color="warning">
-                Login here
+              <Button
+                onClick={() => userSignup()}
+                variant="contained"
+                color="warning"
+              >
+                Register here
               </Button>
               <br />
               <Button onClick={() => setIsLogin(true)}>
